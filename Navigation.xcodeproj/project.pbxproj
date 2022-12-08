@@ -59,12 +59,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		A34938FF2940B2C5001F1297 /* FFeed */ = {
+		A34938FF2940B2C5001F1297 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				A34939002940B30B001F1297 /* Controllers */,
 			);
-			path = FFeed;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		A34939002940B30B001F1297 /* Controllers */ = {
@@ -141,7 +141,7 @@
 				A33E4C8F293E05DD0079DB38 /* Helpers */,
 				A3D2F8DC292B68E50032BFC4 /* AppDelegate.swift */,
 				A3D2F8DE292B68E50032BFC4 /* SceneDelegate.swift */,
-				A34938FF2940B2C5001F1297 /* FFeed */,
+				A34938FF2940B2C5001F1297 /* Feed */,
 				A35D3198293532170042D6F3 /* Profile */,
 				A35D319729352F420042D6F3 /* Controllers */,
 				A3C06186292D1B8A002D6557 /* Model */,
