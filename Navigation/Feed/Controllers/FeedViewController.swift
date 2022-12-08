@@ -10,7 +10,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let post = Post(title: "Make Love Not War")
+    //let post = Post(title: "Make Love Not War")
     	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class FeedViewController: UIViewController {
     
     @objc func goToPostButtonPressed() {
         let vc = PostViewController()
-        vc.title = post.title
+        //vc.title = post.title
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

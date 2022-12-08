@@ -11,6 +11,7 @@
 		A33E4C91293E05FC0079DB38 /* TextFieldHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E4C90293E05FC0079DB38 /* TextFieldHelpers.swift */; };
 		A35D319A293532300042D6F3 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D3199293532300042D6F3 /* ProfileHeaderView.swift */; };
 		A35D319C293532F20042D6F3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D319B293532F20042D6F3 /* MainTabBarController.swift */; };
+		A375EE392941E64B00579AB0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A375EE382941E64B00579AB0 /* PostTableViewCell.swift */; };
 		A3815993292D40CC00FB40EB /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3815992292D40CC00FB40EB /* InfoViewController.swift */; };
 		A3C0617E292D0D3C002D6557 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C0617D292D0D3C002D6557 /* FeedViewController.swift */; };
 		A3C06180292D0D48002D6557 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C0617F292D0D48002D6557 /* ProfileViewController.swift */; };
@@ -27,6 +28,7 @@
 		A33E4C90293E05FC0079DB38 /* TextFieldHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelpers.swift; sourceTree = "<group>"; };
 		A35D3199293532300042D6F3 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		A35D319B293532F20042D6F3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A375EE382941E64B00579AB0 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		A3815992292D40CC00FB40EB /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A3C0617D292D0D3C002D6557 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A3C0617F292D0D48002D6557 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A35D3199293532300042D6F3 /* ProfileHeaderView.swift */,
+				A375EE382941E64B00579AB0 /* PostTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				A35D319C293532F20042D6F3 /* MainTabBarController.swift in Sources */,
 				A33E4C8E293DE3B30079DB38 /* LogInViewController.swift in Sources */,
 				A3D2F8DF292B68E50032BFC4 /* SceneDelegate.swift in Sources */,
+				A375EE392941E64B00579AB0 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

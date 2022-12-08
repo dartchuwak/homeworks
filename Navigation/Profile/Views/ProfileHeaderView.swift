@@ -34,7 +34,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.7
-        button.addTarget(ProfileHeaderView.self, action: #selector (buttonPressed), for: .touchUpInside)
+//        button.addTarget(ProfileHeaderView.self, action: #selector (buttonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -68,16 +68,19 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         tf.borderStyle = .roundedRect
         tf.layer.cornerRadius = 15
         tf.clipsToBounds = true
+        tf.placeholder = "My new status"
         return tf
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = UIColor(white: 0.95, alpha: 1)
         self.statusTextField.delegate = self
         addSubviews()
         profileImage.image = imagePhoto
         subviewsLayout()
+        button.addTarget(self, action: #selector (buttonPressed), for: .touchUpInside)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -111,7 +114,8 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             button.heightAnchor.constraint(equalToConstant: 50),
             button.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -16)
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
     }
     
