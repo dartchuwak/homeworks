@@ -106,6 +106,4 @@ class PostTableViewCell: UITableViewCell {
             viewsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
     }
-    
-
 }

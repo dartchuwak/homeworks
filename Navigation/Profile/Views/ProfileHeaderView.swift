@@ -34,7 +34,6 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.7
-//        button.addTarget(ProfileHeaderView.self, action: #selector (buttonPressed), for: .touchUpInside)
         return button
     }()
     

@@ -18,6 +18,7 @@ class LogInViewController: UIViewController, UIScrollViewDelegate {
     let contentView: UIView = {
         let cv = UIView(frame: .zero)
         cv.translatesAutoresizingMaskIntoConstraints = false
+        //cv.backgroundColor = .orange
         return cv
     }()
     
@@ -98,6 +99,8 @@ class LogInViewController: UIViewController, UIScrollViewDelegate {
     private func scrollViewLayout() {
         NSLayoutConstraint.activate([
             scrollView.heightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.heightAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -105,25 +108,29 @@ class LogInViewController: UIViewController, UIScrollViewDelegate {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
         ])
     }
     
     private func layoutInsideContentView() {
         NSLayoutConstraint.activate([
+            logo.widthAnchor.constraint(equalToConstant: 100),
+            logo.heightAnchor.constraint(equalToConstant: 100),
+            logo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
+            logo.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
             stackView.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 120),
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             stackView.heightAnchor.constraint(equalToConstant: 100),
-            logo.widthAnchor.constraint(equalToConstant: 100),
-            logo.heightAnchor.constraint(equalToConstant: 100),
-            logo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120),
-            logo.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
-            logInButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 120),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
+            logInButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 120),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+            logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+           // logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
@@ -153,8 +160,8 @@ class LogInViewController: UIViewController, UIScrollViewDelegate {
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         guard let ks = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: ks.height - view.safeAreaInsets.bottom + 20, right: 0)
-        self.scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: ks.height - view.safeAreaInsets.bottom + 20, right: 0)
+        self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: ks.height - view.safeAreaInsets.bottom + 20 + 120 + 50, right: 0)
+        self.scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: ks.height - view.safeAreaInsets.bottom + 20 + 120 + 50, right: 0)
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
