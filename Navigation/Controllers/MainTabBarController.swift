@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundEffect = UIBlurEffect(style: .light)
-            appearance.backgroundColor = UIColor(white: 1, alpha: 0.85)
+            appearance.backgroundColor = UIColor(white: 1, alpha: 1)
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         }
@@ -36,7 +36,7 @@ class MainTabBarController: UITabBarController {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundEffect = UIBlurEffect(style: .light)
-            appearance.backgroundColor = UIColor(white: 1, alpha: 0.85)
+            appearance.backgroundColor = UIColor(white: 1, alpha: 1)
             navBar.standardAppearance = appearance
             navBar.scrollEdgeAppearance = appearance
             return navigationController

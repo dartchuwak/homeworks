@@ -73,7 +73,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        self.backgroundColor = UIColor(white: 0.90, alpha: 1)
         self.statusTextField.delegate = self
         addSubviews()
         profileImage.image = imagePhoto
