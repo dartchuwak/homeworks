@@ -9,6 +9,14 @@ import UIKit
 
 class LogInViewController: UIViewController, UIScrollViewDelegate {
     
+    let transparentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemBlue
+        view.alpha = 0.6
+        return view
+    }()
+    
     let scrollView : UIScrollView = {
         let sv = UIScrollView(frame: .zero)
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +102,7 @@ class LogInViewController: UIViewController, UIScrollViewDelegate {
         contentView.addSubview(logInButton)
         stackView.addArrangedSubview(textFieldLogin)
         stackView.addArrangedSubview(textFieldPassword)
+    //    contentView.addSubview(transparentView)
     }
     
     private func scrollViewLayout() {
