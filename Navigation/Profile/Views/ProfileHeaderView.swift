@@ -10,8 +10,21 @@ import UIKit
 
 class ProfileHeaderView: UIView, UITextFieldDelegate {
     
+        
+   
+    
     let imagePhoto = UIImage(named: "image")
     
+    var avatarHeight: NSLayoutConstraint!
+    var avatarWidth: NSLayoutConstraint!
+    var avatarLeading: NSLayoutConstraint!
+    var avatarTop: NSLayoutConstraint!
+    var avatarCenterX: NSLayoutConstraint!
+    var avatarCenterY: NSLayoutConstraint!
+    
+    var viewHeight: NSLayoutConstraint!
+    var viewWidth: NSLayoutConstraint!
+        
     let profileImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +33,18 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         image.layer.borderWidth = 3
         image.layer.borderColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
         image.clipsToBounds = true
+        image.isUserInteractionEnabled = true
+        return image
+    }()
+    
+    let dumbProfileImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.layer.cornerRadius = 50
+        image.layer.borderWidth = 3
+        image.layer.borderColor = .init(red: 1, green: 1, blue: 1, alpha: 1)
+        image.clipsToBounds = true
+        image.alpha = 0
         return image
     }()
     
@@ -71,6 +96,16 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         return tf
     }()
     
+    let blur: UIVisualEffectView = {
+        let blur = UIBlurEffect(style: .regular)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = UIScreen.main.bounds
+        blurView.alpha = 0
+        return blurView
+    }()
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(white: 0.90, alpha: 1)
@@ -78,8 +113,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         addSubviews()
         profileImage.image = imagePhoto
         subviewsLayout()
-        button.addTarget(self, action: #selector (buttonPressed), for: .touchUpInside)
-        
+        animationObjectsLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -87,35 +121,48 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
     }
     
     private func addSubviews() {
-        self.addSubview(profileImage)
         self.addSubview(headerLabel)
         self.addSubview(statusLabel)
         self.addSubview(statusTextField)
         self.addSubview(button)
+        self.addSubview(dumbProfileImage)
+        self.addSubview(blur)
+        self.addSubview(profileImage)
     }
     
     private func subviewsLayout(){
         NSLayoutConstraint.activate([
-            profileImage.widthAnchor.constraint(equalToConstant: 100),
-            profileImage.heightAnchor.constraint(equalToConstant: 100),
-            profileImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            profileImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            dumbProfileImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            dumbProfileImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            dumbProfileImage.widthAnchor.constraint(equalToConstant: 100),
+            dumbProfileImage.widthAnchor.constraint(equalToConstant: 100),
             headerLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            headerLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
+            headerLabel.leadingAnchor.constraint(equalTo: dumbProfileImage.trailingAnchor, constant: 16),
             headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16),
             statusLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 34),
-            statusLabel.leadingAnchor.constraint(equalTo:  profileImage.trailingAnchor, constant: 16),
+            statusLabel.leadingAnchor.constraint(equalTo:  dumbProfileImage.trailingAnchor, constant: 16),
             statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusTextField.heightAnchor.constraint(equalToConstant: 40),
-            statusTextField.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 16),
+            statusTextField.leadingAnchor.constraint(equalTo: dumbProfileImage.trailingAnchor, constant: 16),
             statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 16),
             button.heightAnchor.constraint(equalToConstant: 50),
             button.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
         ])
+    }
+    
+    private func animationObjectsLayout() {
+        avatarWidth = profileImage.widthAnchor.constraint(equalToConstant: 100)
+        avatarWidth.isActive = true
+        avatarHeight = profileImage.heightAnchor.constraint(equalToConstant: 100)
+        avatarHeight.isActive = true
+        avatarLeading = profileImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        avatarLeading.isActive = true
+        avatarTop = profileImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 16)
+        avatarTop.isActive = true
     }
     
     @objc private func buttonPressed() {
@@ -131,6 +178,10 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             statusLabel.text = statusTextField.text
         }
         return false
+    }
+    
+    @objc func tapped(_ tapRecognizer: UITapGestureRecognizer) {
+        print("Hello World")
     }
 }
 
